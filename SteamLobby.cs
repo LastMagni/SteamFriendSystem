@@ -73,6 +73,11 @@ public class SteamLobby : MonoBehaviour
 
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
+        CurrentLobbyID = callback.m_ulSteamIDLobby;
+        //LobbyNameText.gameObject.SetActive(true);
+        //LobbyNameText.text = SteamMatchmaking.GetLobbyData(
+        //    new CSteamID(callback.m_ulSteamIDLobby), "name");
+
         //Clients
 
         if(NetworkServer.active)
@@ -80,7 +85,7 @@ public class SteamLobby : MonoBehaviour
             return;
         }
 
-        manager.networkAddress = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name");
+        manager.networkAddress = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey);
 
         manager.StartClient();
 

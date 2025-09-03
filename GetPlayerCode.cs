@@ -1,7 +1,7 @@
 using UnityEngine;
 using Steamworks;
 
-public class GetPlayerCode : GameManager
+public class GetPlayerCode : MonoBehaviour
 {
     CSteamID GetSteamID()
     {
