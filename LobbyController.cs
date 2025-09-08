@@ -166,7 +166,6 @@ public class LobbyController : MonoBehaviour
             NewPlayerItem.transform.localScale = Vector3.one;
 
             PlayerListItems.Add(NewPlayerITemScript);
-
         }
 
         PlayerItemCreated = true;

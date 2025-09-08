@@ -7,6 +7,9 @@ public class PlayerMovementController : NetworkBehaviour
     public float Speed = 0.1f;
     public GameObject PlayerModel;
 
+    public MeshRenderer PlayerMesh;
+    public Material[] PlayerColors;
+
     private void Start()
     {
         PlayerModel.SetActive(false);
@@ -21,6 +24,8 @@ public class PlayerMovementController : NetworkBehaviour
                 SetPosition();
 
                 PlayerModel.SetActive(true);
+
+                PlayerCosmeticsSetup();
             }
 
             if (isOwned)
@@ -43,5 +48,10 @@ public class PlayerMovementController : NetworkBehaviour
         Vector3 moveDirection = new Vector3(xDirection, 0.0f, zDirection);
 
         transform.position += moveDirection * Speed;
+    }
+
+    public void PlayerCosmeticsSetup()
+    {
+        PlayerMesh.material = PlayerColors[GetComponent<PlayerObjectController>().PlayerColor];
     }
 }
